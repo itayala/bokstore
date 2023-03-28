@@ -1,0 +1,24 @@
+type Book {
+    title: String
+    author: String
+    price: Float
+}
+
+input BookInput {
+    title: String!
+    author: String!
+    price: Float!
+}
+
+# The Root Query for the application
+type Query {
+    allBooks : [Book]
+    findByAuthor(author: String) : [Book]
+}
+
+# The Root Mutation for the application
+type Mutation {
+    addBook(book: BookInput) : String
+    deleteByTitle(title: String) : String
+    updatePrice(title: String, price: Float): String
+}
